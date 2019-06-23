@@ -37,3 +37,6 @@ class dboperation
     }
 }
 ?>
+
+
+https://bootsnipp.com/snippets/z8b1X
