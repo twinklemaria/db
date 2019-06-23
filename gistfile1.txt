@@ -1,0 +1,39 @@
+<?php
+class dboperation
+{
+  var $result;
+  var $con;
+  var $row;
+  function dboperation()
+  {
+	  $this->con=mysql_connect('localhost',"root","");
+	  mysql_select_db("clinic");
+  }
+  function execute_query($query)
+  {
+    $this->result=mysql_query($query,$this->con);
+	if($this->result>0)
+	  return 1;
+	else
+	  return 0;
+  }
+  function norow($res)
+  {
+	  	$this->num=mysql_num_rows($res);
+		return $this->num;
+  }
+  function selectQuery($query)
+  {
+    $this->result=mysql_query($query,$this->con);
+	return $this->result;
+  }
+  function fetch($result)
+  {
+        if ($this->row=mysql_fetch_array($result)) {
+            return $this->row;
+        }else {
+            return false;
+        }
+    }
+}
+?>
