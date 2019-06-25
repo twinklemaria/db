@@ -6,12 +6,12 @@ class dboperation
   var $row;
   function dboperation()
   {
-	  $this->con=mysql_connect('localhost',"root","");
-	  mysql_select_db("clinic");
+	  $this->con=mysqli_connect('localhost',"root","");
+	  mysqli_select_db($this->con,"employee_management");
   }
   function execute_query($query)
   {
-    $this->result=mysql_query($query,$this->con);
+    $this->result=mysqli_query($query,$this->con);
 	if($this->result>0)
 	  return 1;
 	else
@@ -19,17 +19,17 @@ class dboperation
   }
   function norow($res)
   {
-	  	$this->num=mysql_num_rows($res);
+	  	$this->num=mysqli_num_rows($res);
 		return $this->num;
   }
   function selectQuery($query)
   {
-    $this->result=mysql_query($query,$this->con);
+    $this->result=mysqli_query($query,$this->con);
 	return $this->result;
   }
   function fetch($result)
   {
-        if ($this->row=mysql_fetch_array($result)) {
+        if ($this->row=mysqli_fetch_array($result)) {
             return $this->row;
         }else {
             return false;
@@ -37,6 +37,3 @@ class dboperation
     }
 }
 ?>
-
-
-https://bootsnipp.com/snippets/z8b1X
