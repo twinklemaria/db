@@ -11,7 +11,7 @@ class dboperation
   }
   function execute_query($query)
   {
-    $this->result=mysqli_query($query,$this->con);
+    $this->result=mysqli_query($this->con,$query);
 	if($this->result>0)
 	  return 1;
 	else
@@ -24,7 +24,7 @@ class dboperation
   }
   function selectQuery($query)
   {
-    $this->result=mysqli_query($query,$this->con);
+    $this->result=mysqli_query($this->con,$query);
 	return $this->result;
   }
   function fetch($result)
